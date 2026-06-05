@@ -1,24 +1,31 @@
 # Landing Page - Jesi Cellucci
 
-## Instrucciones para publicar (Método más simple - Netlify Drop)
+## Repositorio en GitHub
+https://github.com/dellaera/Jesica-Cellucci-landing
 
-### Paso 1: Descargar los archivos
-- Descargá la carpeta `/home/sebastian/Landings/` a tu computadora
-- Asegurate de que tenga el archivo `index.html` dentro
+## Instrucciones para publicar (Netlify + GitHub)
 
-### Paso 2: Subir a Netlify (Gratis)
-1. Entrá a https://app.netlify.com/drop
-2. Si no tenés cuenta, registrate (es gratis)
-3. Arrastrá la carpeta `/home/sebastian/Landings/` al navegador
-4. Esperá unos segundos y ¡listo!
-5. Netlify te va a dar una URL gratis como: `https://tu-sitio.netlify.app`
+### Paso 1: Crear cuenta en Netlify
+1. Entrá a https://app.netlify.com/signup
+2. Registrate con tu cuenta de GitHub (es gratis)
 
-### Paso 3: Configurar TikTok
-Una vez que tengas la URL, en tu perfil de TikTok poné:
+### Paso 2: Conectar el repo de GitHub
+1. En Netlify, hacé clic en "Add new site" → "Import an existing project"
+2. Seleccioná "GitHub" y autorizá Netlify para acceder a tus repos
+3. Buscá y seleccioná el repo: `Jesica-Cellucci-landing`
+4. En "Build settings", dejá todo por defecto
+5. Hacé clic en "Deploy site"
+
+### Paso 3: Obtener la URL
+Netlify va a desplegar el sitio en unos segundos y te dará una URL como:
+`https://jesica-cellucci-landing.netlify.app`
+
+### Paso 4: Configurar TikTok
+En tu perfil de TikTok poné:
 
 ```
 👇 Agenda tu reunión gratuita
-https://tu-sitio.netlify.app
+https://jesica-cellucci-landing.netlify.app
 ```
 
 ---
