@@ -644,21 +644,24 @@
 
   function sendToWhatsApp(e) {
     e.preventDefault();
-    
+
     const nombre = document.getElementById('nombre').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
-    
+
     if (!nombre || !telefono) {
       alert('Por favor completá todos los campos');
       return;
     }
+
+    // Intentar abrir app de WhatsApp directamente (más compatible con TikTok)
+    const whatsappUrl = 'https://wa.link/bkegup';
     
-    // Abrir WhatsApp directo con el link de Jesi
-    window.open('https://wa.link/bkegup', '_blank');
-    
+    // Primero intenta abrir en la misma ventana (funciona mejor en TikTok)
+    window.location.href = whatsappUrl;
+
     // Cerrar modal
     closeModal();
-    
+
     // Limpiar formulario
     document.getElementById('whatsappForm').reset();
   }
