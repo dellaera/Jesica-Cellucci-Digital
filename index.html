@@ -1293,8 +1293,7 @@ footer span { color: var(--muted); }
     <div class="lead-form">
       <h3>Dejame tus datos y te escribo</h3>
       <p>Si preferís que te contacte por WhatsApp, dejame tu nombre y número y te escribo en las próximas horas.</p>
-      <form name="contacto-lead" method="POST" data-netlify="true" action="gracias.html" onsubmit="handleLead(event)">
-        <input type="hidden" name="form-name" value="contacto-lead">
+      <form name="contacto-lead" method="POST" netlify action="/gracias.html" onsubmit="handleLead(event)">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="tel" name="telefono" placeholder="Tu WhatsApp (sin 0 ni 15)" required>
         <button type="submit">QUIERO QUE ME ESCRIBAN</button>
