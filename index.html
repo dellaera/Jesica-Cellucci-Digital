@@ -1293,7 +1293,7 @@ footer span { color: var(--muted); }
     <div class="lead-form">
       <h3>Dejame tus datos y te escribo</h3>
       <p>Si preferís que te contacte por WhatsApp, dejame tu nombre y número y te escribo en las próximas horas.</p>
-      <form name="contacto-lead" method="POST" action="https://formspree.io/f/xpqvzorq" onsubmit="handleLead(event)">
+      <form name="contacto-lead" method="POST" action="https://formspree.io/f/xgogervj" onsubmit="handleLead(event)">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="tel" name="telefono" placeholder="Tu WhatsApp (sin 0 ni 15)" required>
         <label for="ayuda">¿En qué te gustaría recibir ayuda?</label>
@@ -1484,7 +1484,7 @@ function handleLead(e) {
   if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 
   const ayuda = form.ayuda ? form.ayuda.value.trim() : '';
-  fetch('https://formspree.io/f/xpqvzorq', {
+  fetch('https://formspree.io/f/xgogervj', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nombre, telefono, ayuda })
