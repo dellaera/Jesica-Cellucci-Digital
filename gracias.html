@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias — Libertad Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0C0812;
+  --surface: #140E1C;
+  --purple: #9B4DCA;
+  --purple-soft: #C088E8;
+  --white: #FAFAFA;
+  --text: #E8DFF4;
+  --muted: #8A7A9B;
+  --border: rgba(155,77,202,0.18);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.thanks-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 48px 36px;
+  max-width: 480px;
+  text-align: center;
+}
+.thanks-box h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.thanks-box p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+.thanks-box strong { color: var(--purple-soft); font-weight: 500; }
+.btn-cta {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.btn-cta:hover { background: #7A3BAA; }
+.small {
+  display: block;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+
+<div class="thanks-box">
+  <h1>🎉 ¡Gracias por tu interés!</h1>
+  <p>Ya recibí tus datos. Te voy a escribir por WhatsApp en las próximas horas para que hablemos de tu situación y veamos si <strong>Libertad Digital</strong> es para vos.</p>
+  <a href="https://wa.link/bkegup" class="btn-cta">Agendar mi llamada ahora →</a>
+  <span class="small">© Jesi Cellucci · Libertad Digital</span>
+</div>
+
+</body>
+</html>

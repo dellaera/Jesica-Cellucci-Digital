@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Libertad Digital — Programa de Jesi Cellucci</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXXX');
+  fbq('track', 'PageView');
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,6 +63,7 @@ h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 .video-cta { text-align: center; margin-top: 28px; }
 .video-cta .btn-note { margin-bottom: 24px; }
 .car-hint { font-size: 13px; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; }
+.section-padded { padding: 0 24px 40px; }
 
 /* ── LÍNEA DECORATIVA SIGNATURE ── */
 .lumen {
@@ -54,10 +74,44 @@ h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 }
 
 /* ════════════════════════════════
+   STICKY URGENCY BAR
+════════════════════════════════ */
+.urgency-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(12, 8, 18, 0.95);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+.urgency-bar.visible { transform: translateY(0); }
+.urgency-bar .dot {
+  width: 6px; height: 6px;
+  background: #ff3b30;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.urgency-bar strong { color: var(--gold); font-weight: 600; }
+
+/* ════════════════════════════════
    HERO
 ════════════════════════════════ */
 .hero {
-  padding: 72px 24px 56px;
+  padding: 100px 24px 56px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -761,10 +815,211 @@ footer {
 footer span { color: var(--muted); }
 
 /* ════════════════════════════════
+   WHATSAPP FLOAT
+════════════════════════════════ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s;
+}
+.whatsapp-float:hover { transform: scale(1.05); }
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+/* ════════════════════════════════
+   STICKY CTA MOBILE
+════════════════════════════════ */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  display: none;
+  background: rgba(12, 8, 18, 0.98);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  backdrop-filter: blur(8px);
+}
+.sticky-cta a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--purple);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 0;
+  border-radius: 4px;
+}
+
+/* ════════════════════════════════
+   LEAD FORM
+════════════════════════════════ */
+.lead-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+.lead-form h3 {
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.lead-form p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.lead-form input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--white);
+  font-size: 15px;
+  margin-bottom: 12px;
+  outline: none;
+}
+.lead-form input:focus { border-color: var(--purple); }
+.lead-form button {
+  width: 100%;
+  background: var(--purple);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  padding: 16px 0;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* ════════════════════════════════
+   QUIZ ¿ESTO ES PARA VOS?
+════════════════════════════════ */
+.quiz-section { padding: 0 24px; }
+.quiz-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+.quiz-question {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.quiz-question.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.quiz-box h3 {
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.quiz-options {
+  display: grid;
+  gap: 12px;
+}
+.quiz-options button {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.quiz-options button:hover {
+  border-color: var(--purple);
+  background: var(--purple-pale);
+}
+.quiz-result {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.quiz-result.active { display: block; }
+
+/* ════════════════════════════════
+   EXIT POPUP
+════════════════════════════════ */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 20px;
+}
+.exit-popup.active { display: flex; }
+.exit-popup-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--purple);
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.3s ease;
+}
+@keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.exit-popup-box h3 {
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.exit-popup-box p {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.exit-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ════════════════════════════════
    RESPONSIVE
 ════════════════════════════════ */
 @media (max-width: 640px) {
-  .hero { padding: 56px 20px 44px; }
+  .hero { padding: 80px 20px 44px; }
   .includes-grid { grid-template-columns: 1fr; }
   .pq-grid { grid-template-columns: 1fr; }
   .transform-wrap { grid-template-columns: 1fr; gap: 20px; }
@@ -772,10 +1027,22 @@ footer span { color: var(--muted); }
   .testi-videos { grid-template-columns: 1fr; }
   .garantia-box { flex-direction: column; gap: 16px; padding: 24px; }
   .cta-box { padding: 40px 24px; }
+  .whatsapp-float, .sticky-cta { display: flex; }
+  .whatsapp-float { bottom: 80px; }
+  body { padding-bottom: 70px; }
 }
 </style>
 </head>
 <body>
+
+<!-- Meta Pixel noscript -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=PageView&noscript=1" alt=""></noscript>
+
+<!-- ══ STICKY URGENCY BAR ══ -->
+<div class="urgency-bar" id="urgencyBar">
+  <span class="dot"></span>
+  <span><strong>Últimos cupos</strong> disponibles para la próxima apertura del programa</span>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -1020,6 +1287,65 @@ footer span { color: var(--muted); }
 
 <div class="container"><div class="sep"></div></div>
 
+<!-- ══ FORMULARIO DE CAPTURA ══ -->
+<section class="lead-form-section section-padded">
+  <div class="container">
+    <div class="lead-form">
+      <h3>Dejame tus datos y te escribo</h3>
+      <p>Si preferís que te contacte por WhatsApp, dejame tu nombre y número y te escribo en las próximas horas.</p>
+      <form name="contacto-lead" method="POST" data-netlify="true" action="gracias.html" onsubmit="handleLead(event)">
+        <input type="hidden" name="form-name" value="contacto-lead">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="tel" name="telefono" placeholder="Tu WhatsApp (sin 0 ni 15)" required>
+        <button type="submit">QUIERO QUE ME ESCRIBAN</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ QUIZ ¿ESTO ES PARA VOS? ══ -->
+<section class="quiz-section section-padded">
+  <div class="container">
+    <div class="quiz-box">
+      <div class="quiz-question active" data-step="0">
+        <h3>¿Ya trabajás o estudiás?</h3>
+        <div class="quiz-options">
+          <button type="button" onclick="quizNext(1)">Sí, trabajo o estudio</button>
+          <button type="button" onclick="quizNext(1)">No, estoy buscando un cambio</button>
+        </div>
+      </div>
+      <div class="quiz-question" data-step="1">
+        <h3>¿Tenés al menos 5 horas semanales para dedicarle?</h3>
+        <div class="quiz-options">
+          <button type="button" onclick="quizNext(2)">Sí, puedo organizarme</button>
+          <button type="button" onclick="quizNext(2)">Por ahora no</button>
+        </div>
+      </div>
+      <div class="quiz-question" data-step="2">
+        <h3>¿Estás dispuesta a invertir en tu formación?</h3>
+        <div class="quiz-options">
+          <button type="button" onclick="quizFinish(true)">Sí, si me da resultados</button>
+          <button type="button" onclick="quizFinish(false)">No estoy lista</button>
+        </div>
+      </div>
+      <div class="quiz-result" id="quizResult">
+        <h3>🎉 ¡Libertad Digital es para vos!</h3>
+        <p>Agendá una llamada gratuita y veamos juntas cómo empezar tu camino digital.</p>
+        <a href="https://wa.link/bkegup" class="btn-cta">AGENDÁ TU LLAMADA →</a>
+      </div>
+      <div class="quiz-result" id="quizResultNo">
+        <h3>💜 Te entiendo</h3>
+        <p>Cuando estés lista, voy a estar acá. Mientras tanto, seguime en @jesicellucci.ok para acompañarte.</p>
+        <a href="https://instagram.com/jesicellucci.ok" class="btn-cta">SEGUIRME EN INSTAGRAM →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
 <!-- ══ GARANTÍA ══ -->
 <section class="garantia">
   <div class="container">
@@ -1059,6 +1385,26 @@ footer span { color: var(--muted); }
 <footer>
   <span>Libertad Digital</span> · @jesicellucci.ok · Copyrights 2026
 </footer>
+
+<!-- ══ WHATSAPP FLOTANTE ══ -->
+<a href="https://wa.link/bkegup" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ══ STICKY CTA MOBILE ══ -->
+<div class="sticky-cta">
+  <a href="https://wa.link/bkegup">AGENDÁ TU LLAMADA GRATUITA →</a>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-popup-box">
+    <button type="button" class="exit-close" onclick="closeExitPopup()" aria-label="Cerrar">×</button>
+    <h3>¿Te vas sin tu llamada gratuita?</h3>
+    <p>Agendá una llamada de 30 minutos sin compromiso y veamos si Libertad Digital es lo que necesitás para empezar.</p>
+    <a href="https://wa.link/bkegup" class="btn-cta">QUIERO AGENDAR →</a>
+  </div>
+</div>
 
 <script>
 (function() {
@@ -1115,6 +1461,73 @@ footer span { color: var(--muted); }
     if (Math.abs(d) > 40) moverCar(d > 0 ? 1 : -1);
   }, { passive: true });
 })();
+
+// Sticky urgency bar
+(function() {
+  const bar = document.getElementById('urgencyBar');
+  if (!bar) return;
+  setTimeout(() => bar.classList.add('visible'), 1000);
+})();
+
+// Lead form (Netlify Forms) — tracking antes de enviar
+function handleLead(e) {
+  const form = e.target;
+  const nombre = form.nombre.value.trim();
+  const telefono = form.telefono.value.trim().replace(/\D/g, '');
+  if (!nombre || telefono.length < 8) {
+    e.preventDefault();
+    alert('Por favor, completá tus datos correctamente.');
+    return;
+  }
+  if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+}
+
+// Quiz
+function quizNext(step) {
+  const questions = document.querySelectorAll('.quiz-question');
+  questions.forEach(q => q.classList.remove('active'));
+  const next = document.querySelector(`.quiz-question[data-step="${step}"]`);
+  if (next) next.classList.add('active');
+}
+
+function quizFinish(esParaVos) {
+  const questions = document.querySelectorAll('.quiz-question');
+  questions.forEach(q => q.classList.remove('active'));
+  const result = esParaVos ? document.getElementById('quizResult') : document.getElementById('quizResultNo');
+  if (result) result.classList.add('active');
+  if (typeof gtag !== 'undefined') gtag('event', 'quiz_complete', { value: esParaVos ? 'si' : 'no' });
+  if (typeof fbq !== 'undefined') fbq('track', 'QuizComplete');
+}
+
+// Exit popup
+(function() {
+  const popup = document.getElementById('exitPopup');
+  if (!popup) return;
+  let shown = false;
+  document.addEventListener('mouseout', e => {
+    if (shown || e.clientY > 0) return;
+    if (e.relatedTarget === null) {
+      popup.classList.add('active');
+      shown = true;
+      if (typeof gtag !== 'undefined') gtag('event', 'exit_popup');
+      if (typeof fbq !== 'undefined') fbq('track', 'ExitPopup');
+    }
+  });
+})();
+
+function closeExitPopup() {
+  const popup = document.getElementById('exitPopup');
+  if (popup) popup.classList.remove('active');
+}
+
+// CTA click tracking
+document.querySelectorAll('a[href*="wa.link"], .btn-cta').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (typeof gtag !== 'undefined') gtag('event', 'click_whatsapp');
+    if (typeof fbq !== 'undefined') fbq('track', 'Contact');
+  });
+});
 </script>
 
 </body>
