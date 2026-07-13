@@ -3,668 +3,1108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesi Cellucci — Emprendé Digital</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<title>Libertad Digital — Programa de Jesi Cellucci</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --black: #0E0A14;
-    --white: #FAFAF7;
-    --coral: #9B6FC4;
-    --coral-dark: #7A4FA8;
-    --coral-light: #C99EE0;
-    --sand: #F2EDE4;
-    --sand-dark: #E0D8CC;
-    --text: #1C1C1C;
-    --muted: #6B6560;
-  }
+:root {
+  --bg:        #0C0812;
+  --surface:   #140E1C;
+  --surface2:  #1C1428;
+  --purple:    #9B4DCA;
+  --purple-soft:#C088E8;
+  --purple-pale:#2A1840;
+  --cream:     #F2EBF8;
+  --white:     #FAFAFA;
+  --text:      #E8DFF4;
+  --muted:     #8A7A9B;
+  --border:    rgba(155,77,202,0.18);
+  --gold:      #D4A840;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--black);
-    text-align: center;
-    padding: 48px 24px 8px;
-    position: relative;
-    overflow: hidden;
-  }
+/* ── TIPOGRAFÍA ── */
+h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -120px; left: 50%;
-    transform: translateX(-50%);
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(155,111,196,0.12) 0%, transparent 65%);
-    pointer-events: none;
-  }
+/* ── LAYOUT ── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.container-sm { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
-  .eyebrow {
-    display: inline-block;
-    background: rgba(155,111,196,0.15);
-    border: 1px solid rgba(155,111,196,0.35);
-    color: var(--coral-light);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 40px;
-    margin-bottom: 28px;
-  }
+.video-cta { text-align: center; margin-top: 28px; }
+.video-cta .btn-note { margin-bottom: 24px; }
+.car-hint { font-size: 13px; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; }
 
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 8vw, 88px);
-    line-height: 0.95;
-    letter-spacing: 1px;
-    color: var(--white);
-    max-width: 820px;
-    margin: 0 auto 24px;
-  }
+/* ── LÍNEA DECORATIVA SIGNATURE ── */
+.lumen {
+  display: block;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--purple), transparent);
+  margin: 0 auto;
+}
 
-  .hero h1 span {
-    color: var(--coral);
-    display: block;
-  }
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.hero {
+  padding: 72px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-  .hero .sub {
-    font-size: clamp(18px, 2.8vw, 22px);
-    color: rgba(250,250,247,0.85);
-    max-width: 580px;
-    margin: 0 auto 12px;
-    font-weight: 500;
-  }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(ellipse at center,
+    rgba(155,77,202,0.16) 0%,
+    rgba(155,77,202,0.04) 45%,
+    transparent 70%);
+  pointer-events: none;
+}
 
-  .hero .sub strong {
-    color: var(--coral-light);
-    font-weight: 700;
-  }
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--purple-soft);
+  margin-bottom: 28px;
+  position: relative;
+}
 
-  .tagline-bar {
-    display: inline-block;
-    background: rgba(155,111,196,0.2);
-    border: 2px solid rgba(155,111,196,0.5);
-    border-radius: 8px;
-    padding: 12px 28px;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--coral-light);
-    margin-bottom: 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    animation: pulse 2s ease-in-out infinite;
-  }
+.hero h1 {
+  font-size: clamp(38px, 7vw, 76px);
+  font-weight: 800;
+  color: var(--white);
+  max-width: 820px;
+  margin: 0 auto 20px;
+  letter-spacing: -1.5px;
+}
 
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(155,111,196,0.3); }
-    50% { box-shadow: 0 0 40px rgba(155,111,196,0.6); }
-  }
+.hero h1 em {
+  display: block;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: 1em;
+  letter-spacing: -1.5px;
+  margin-top: 0;
+}
 
-  /* ── VIDEO AREA ── */
-  .video-section {
-    background: var(--black);
-    padding: 0 24px 56px;
-  }
+.hero-sub {
+  font-size: clamp(15px, 2.2vw, 18px);
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  font-weight: 400;
+}
 
-  .video-wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    position: relative;
-  }
+.hero-sub strong { color: var(--text); font-weight: 500; }
 
-  .video-placeholder {
-    background: #17101F;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    aspect-ratio: 16/9;
-    position: relative;
-    overflow: hidden;
-  }
+.hero-bio {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 44px;
+  line-height: 1.75;
+  font-style: italic;
+}
 
-  .video-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(155,111,196,0.06) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
+.hero-bio strong { color: var(--purple-soft); font-style: normal; font-weight: 500; }
 
-  .video-placeholder iframe {
-    position: relative;
-    z-index: 1;
-  }
+.alert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212,168,64,0.08);
+  border: 1px solid rgba(212,168,64,0.25);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 2px;
+  margin-bottom: 36px;
+}
 
-  .play-btn {
-    width: 72px; height: 72px;
-    background: var(--coral);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s, background 0.2s;
-  }
+/* ════════════════════════════════
+   VIDEO
+════════════════════════════════ */
+.video-section { padding: 0 24px 16px; }
 
-  .play-btn:hover { transform: scale(1.08); background: var(--coral-dark); }
+.video-outer {
+  max-width: 860px;
+  margin: 0 auto;
+}
 
-  .play-btn svg { width: 28px; height: 28px; fill: white; margin-left: 4px; }
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 24px 80px rgba(155,77,202,0.18);
+}
 
-  .video-label {
-    font-size: 14px;
-    color: rgba(250,250,247,0.45);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-  }
+.video-wrap iframe,
+.video-wrap video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
 
-  .video-note {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 13px;
-    color: rgba(250,250,247,0.35);
-    letter-spacing: 0.5px;
-  }
+.video-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+  background: var(--surface);
+}
 
-  /* ── CTA BUTTON ── */
-  .cta-wrap {
-    text-align: center;
-    padding: 0 24px 72px;
-  }
+.play-ring {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.play-ring:hover { background: rgba(155,77,202,0.15); }
+.play-ring svg { width: 28px; height: 28px; fill: var(--purple-soft); margin-left: 4px; }
 
-  .btn-cta {
-    display: inline-block;
-    background: var(--coral);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    padding: 18px 52px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 0 40px rgba(155,111,196,0.25);
-  }
+.video-hint {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-  .btn-cta:hover { background: var(--coral-dark); transform: translateY(-2px); }
+.video-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+  font-style: italic;
+}
 
-  .btn-sub {
-    display: block;
-    margin-top: 12px;
-    font-size: 17px;
-    color: rgba(250,250,247,0.75);
-    font-weight: 500;
-  }
+/* ════════════════════════════════
+   SEPARADORES
+════════════════════════════════ */
+.sep {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 64px 0;
+}
 
-  /* ── DIVIDER ── */
-  .divider {
-    width: 60px;
-    height: 2px;
-    background: var(--coral);
-    margin: 0 auto 48px;
-    opacity: 0.5;
-  }
+.section-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 16px;
+  display: block;
+}
 
-  /* ── TESTIMONIOS ── */
-  .testimonios {
-    background: var(--black);
-    padding: 0 24px 80px;
-  }
+.section-h {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
 
-  .section-label {
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(32px, 5vw, 52px);
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
+.section-sub-text {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
 
-  .section-label span { color: var(--coral); }
+/* ════════════════════════════════
+   QUÉ INCLUYE
+════════════════════════════════ */
+.includes { padding: 0 24px; }
 
-  .section-sub {
-    text-align: center;
-    font-size: 17px;
-    color: rgba(250,250,247,0.75);
-    margin-bottom: 52px;
-    font-weight: 500;
-  }
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
 
-  .testimonios-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
+.inc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
 
-  .card-t {
-    background: #130F1C;
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 12px;
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
+.inc-card:hover { border-color: rgba(155,77,202,0.4); }
 
-  .card-t:hover { border-color: rgba(155,111,196,0.3); }
+.inc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--purple), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
-  .card-t::before {
-    content: '"';
-    position: absolute;
-    top: -10px; right: 20px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 120px;
-    color: rgba(155,111,196,0.06);
-    line-height: 1;
-    pointer-events: none;
-  }
+.inc-card:hover::after { opacity: 1; }
 
-  .t-result {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: var(--coral-light);
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    line-height: 1.1;
-  }
+.inc-icon {
+  font-size: 24px;
+  margin-bottom: 14px;
+  display: block;
+}
 
-  .t-body {
-    font-size: 14px;
-    color: rgba(250,250,247,0.6);
-    line-height: 1.75;
-    margin-bottom: 20px;
-    font-weight: 300;
-  }
+.inc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
 
-  .t-name {
-    font-size: 20px;
-    font-weight: 600;
-    color: rgba(250,250,247,0.95);
-    line-height: 1.6;
-  }
+.inc-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
 
-  .t-badge {
-    display: inline-block;
-    background: rgba(155,111,196,0.1);
-    border: 1px solid rgba(155,111,196,0.2);
-    color: var(--coral-light);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-  }
+.bonus-strip {
+  background: rgba(212,168,64,0.05);
+  border: 1px solid rgba(212,168,64,0.15);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 20px;
+}
 
-  .t-video {
-    width: 100%;
-    max-height: 400px;
-    aspect-ratio: 9/16;
-    background: #17101F;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
+.bonus-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
 
-  .t-video iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+.bonus-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
 
-  /* ── SEGUNDA CTA ── */
-  .cta2 {
-    background: #0C0914;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding: 72px 24px;
-    text-align: center;
-  }
+.bonus-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
 
-  .cta2 h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(28px, 5vw, 48px);
-    color: var(--white);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-  }
+.bonus-list li::before {
+  content: '🎁';
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 
-  .cta2 p {
-    color: rgba(250,250,247,0.95);
-    font-size: 20px;
-    max-width: 580px;
-    margin: 0 auto 36px;
-    font-weight: 600;
-    line-height: 1.6;
-  }
+/* ════════════════════════════════
+   PARA QUIÉN ES
+════════════════════════════════ */
+.para-quien { padding: 0 24px; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--black);
-    border-top: 1px solid rgba(255,255,255,0.04);
-    padding: 24px;
-    text-align: center;
-    font-size: 14px;
-    color: rgba(250,250,247,0.6);
-    letter-spacing: 0.5px;
-  }
+.pq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
 
-  /* ── MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
+.pq-card {
+  border-radius: 10px;
+  padding: 24px;
+}
 
-  .modal-overlay.active { display: flex; }
+.pq-card.si {
+  background: rgba(155,77,202,0.06);
+  border: 1px solid rgba(155,77,202,0.2);
+}
 
-  .modal-content {
-    background: #130F1C;
-    border: 1px solid rgba(155,111,196,0.3);
-    border-radius: 16px;
-    padding: 40px;
-    max-width: 420px;
-    width: 100%;
-    position: relative;
-    animation: modalSlide 0.3s ease;
-  }
+.pq-card.no {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
 
-  @keyframes modalSlide {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+.pq-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
 
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: none;
-    border: none;
-    color: rgba(250,250,247,0.4);
-    font-size: 28px;
-    cursor: pointer;
-    transition: color 0.2s;
-    line-height: 1;
-  }
+.pq-card.si .pq-title { color: var(--purple-soft); }
+.pq-card.no .pq-title { color: var(--muted); }
 
-  .modal-close:hover { color: var(--coral-light); }
+.pq-list { list-style: none; display: grid; gap: 9px; }
 
-  .modal-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--white);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-  }
+.pq-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
 
-  .modal-subtitle {
-    font-size: 14px;
-    color: rgba(250,250,247,0.5);
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
+.pq-card.si .pq-list li { color: var(--text); }
+.pq-card.no .pq-list li { color: var(--muted); }
 
-  .form-group {
-    margin-bottom: 20px;
-  }
+.pq-card.si .pq-list li::before { content: '✓'; color: var(--purple-soft); font-weight: 700; }
+.pq-card.no .pq-list li::before { content: '✗'; color: rgba(255,255,255,0.15); }
 
-  .form-label {
-    display: block;
-    font-size: 13px;
-    color: rgba(250,250,247,0.6);
-    margin-bottom: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
+/* ════════════════════════════════
+   TRANSFORMACIÓN
+════════════════════════════════ */
+.transformacion { padding: 0 24px; }
 
-  .form-input {
-    width: 100%;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 14px 16px;
-    color: var(--white);
-    font-size: 15px;
-    font-family: 'Nunito', sans-serif;
-    transition: border-color 0.2s, background 0.2s;
-  }
+.transform-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 32px;
+}
 
-  .form-input:focus {
-    outline: none;
-    border-color: var(--coral);
-    background: rgba(155,111,196,0.05);
-  }
+.transform-col { }
 
-  .form-input::placeholder {
-    color: rgba(250,250,247,0.3);
-  }
+.transform-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
 
-  .btn-submit {
-    width: 100%;
-    background: var(--coral);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 16px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 12px;
-  }
+.transform-col.antes .transform-label { color: var(--muted); }
+.transform-col.despues .transform-label { color: var(--purple-soft); }
 
-  .btn-submit:hover { background: var(--coral-dark); transform: translateY(-2px); }
+.transform-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
 
-  .modal-note {
-    text-align: center;
-    font-size: 12px;
-    color: rgba(250,250,247,0.3);
-    margin-top: 20px;
-  }
+.transform-list li {
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
 
-  @media (max-width: 600px) {
-    .hero { padding: 48px 20px 40px; }
-    .modal-content { padding: 28px; }
-    .modal-title { font-size: 26px; }
-  }
+.transform-col.antes .transform-list li { color: var(--muted); }
+.transform-col.antes .transform-list li::before { content: '—'; color: rgba(255,255,255,0.15); }
+
+.transform-col.despues .transform-list li { color: var(--text); }
+.transform-col.despues .transform-list li::before { content: '→'; color: var(--purple); font-weight: 700; }
+
+.transform-arrow {
+  font-size: 28px;
+  color: var(--purple);
+  opacity: 0.6;
+  text-align: center;
+}
+
+/* ════════════════════════════════
+   TESTIMONIOS
+════════════════════════════════ */
+.testimonios { padding: 0 24px; }
+
+.testi-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+  margin-bottom: 32px;
+}
+
+.testi-video-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.testi-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--surface2);
+}
+
+.testi-video-wrap iframe,
+.testi-video-wrap video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none; object-fit: cover;
+}
+
+.testi-video-ph {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 16px;
+}
+
+.testi-video-info {
+  padding: 14px 16px;
+}
+
+.testi-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.testi-detail { font-size: 12px; color: var(--muted); }
+
+/* CARRUSEL DE FOTOS */
+.carrusel-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.carrusel-viewport { overflow: hidden; border-radius: 10px; flex: 1; }
+
+.carrusel-track {
+  display: flex;
+  gap: 14px;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+.car-slide {
+  flex: 0 0 calc(33.333% - 10px);
+  aspect-ratio: 9/16;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.car-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+.car-ph {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 16px;
+}
+
+.car-ph small {
+  font-size: 11px;
+  color: rgba(138,122,155,0.5);
+  line-height: 1.5;
+}
+
+.car-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--purple-soft);
+  font-size: 22px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+  user-select: none;
+  line-height: 1;
+}
+
+.car-btn:hover { background: var(--purple-pale); }
+
+.car-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.car-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.car-dot.active { background: var(--purple); }
+
+@media (max-width: 640px) {
+  .car-slide { flex: 0 0 100%; }
+}
+
+@media (min-width: 641px) and (max-width: 860px) {
+  .car-slide { flex: 0 0 calc(50% - 7px); }
+}
+
+/* ════════════════════════════════
+   GARANTÍA
+════════════════════════════════ */
+.garantia { padding: 0 24px; }
+
+.garantia-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--purple);
+  border-radius: 10px;
+  padding: 32px 36px;
+  margin-top: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.garantia-icon { font-size: 36px; flex-shrink: 0; }
+
+.garantia-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.garantia-text {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.garantia-text strong { color: var(--text); font-weight: 500; }
+
+/* ════════════════════════════════
+   CTA FINAL
+════════════════════════════════ */
+.cta-section {
+  padding: 0 24px 80px;
+  text-align: center;
+}
+
+.cta-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 56px 40px;
+  position: relative;
+  overflow: hidden;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--purple), transparent);
+}
+
+.cta-box::after {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(155,77,202,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.cta-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 20px;
+  display: block;
+  position: relative;
+}
+
+.cta-box h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.cta-box p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 460px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.btn-cta {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 0 40px rgba(155,77,202,0.25);
+  position: relative;
+}
+
+.btn-cta:hover { background: #7A3BAA; transform: translateY(-2px); }
+
+.btn-note {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  position: relative;
+}
+
+/* ── IMAGEN DEBAJO DEL BOTÓN ── */
+.cta-img-wrap {
+  margin-top: 32px;
+  position: relative;
+}
+
+.cta-img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 8px 40px rgba(155,77,202,0.2);
+}
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(138,122,155,0.4);
+  letter-spacing: 0.5px;
+}
+
+footer span { color: var(--muted); }
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .pq-grid { grid-template-columns: 1fr; }
+  .transform-wrap { grid-template-columns: 1fr; gap: 20px; }
+  .transform-arrow { display: none; }
+  .testi-videos { grid-template-columns: 1fr; }
+  .garantia-box { flex-direction: column; gap: 16px; padding: 24px; }
+  .cta-box { padding: 40px 24px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
+<!-- ══ HERO ══ -->
 <section class="hero">
-  <div class="eyebrow">@jesicellucci.ok</div>
-  <h1>
-    TRIPLICÁ TUS CLIENTES Y ESCALA TU NEGOCIO EN REDES SOCIALES
-  </h1>
-  <p class="sub">
-    Método validado para convertir tus redes sociales
-    en una máquina de generar ventas
-    <strong>(sin gastar ni un dólar en anuncios)</strong>
-  </p>
-  <div class="tagline-bar">🔈 ACTIVÁ TU AUDIO Y PULSA PARA REPRODUCIR</div>
-</section>
+  <div class="hero-eyebrow">Programa Libertad Digital · @jesicellucci.ok</div>
 
-<!-- ── VIDEO ── -->
-<section class="video-section">
-  <div class="video-wrap">
-    <div class="video-placeholder">
-      <iframe 
-        src="https://www.youtube.com/embed/kx2_BhaHvoM?rel=0&modestbranding=1&playsinline=1" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen
-        style="width: 100%; height: 100%; border-radius: 12px;">
-      </iframe>
-    </div>
+  <h1>
+    De empleada a vivir
+    <em>de los negocios digitales</em>
+  </h1>
+
+  <p class="hero-bio">
+    Soy Jesica, mamá y ex empleada en relación de dependencia.<br>
+    Un día decidí que quería algo propio, algo que me diera libertad de tiempo para estar presente en la vida de mis hijos sin depender de un sueldo.<br>
+    Hoy trabajo desde mi celular, genero mis propios ingresos con negocios digitales — y <strong>lo que estás a punto de ver cambió todo para mí.</strong>
+  </p>
+
+  <div class="alert-badge">
+    ⚠️ Mirá este video porque puede cambiar tu vida
   </div>
 </section>
 
-<!-- ── CTA 1 ── -->
-<div class="cta-wrap">
-  <button class="btn-cta" onclick="openModal()">AGENDÁ UNA REUNIÓN →</button>
-  <span class="btn-sub">Sin compromiso · Solo 10 lugares disponibles por semana</span>
+<!-- ══ VIDEO ══ -->
+<div class="video-section">
+  <div class="video-outer">
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/hDaTAlhQDE8?rel=0&modestbranding=1&playsinline=1" title="Video principal Libertad Digital" allowfullscreen></iframe>
+    </div>
+    <p class="video-note">Mirá el video completo antes de aplicar — así aprovechamos mejor nuestra llamada.</p>
+
+    <!-- BOTÓN DEBAJO DEL VIDEO -->
+    <div class="video-cta">
+      <a href="https://wa.link/bkegup" class="btn-cta">AGENDÁ TU LLAMADA GRATUITA →</a>
+      <span class="btn-note">Cupos limitados — el acompañamiento es personalizado</span>
+      <div class="cta-img-wrap">
+        <img src="img/instruccion-tiktok.jpeg" alt="Si te aparece esta pantalla, abrí el enlace en el navegador" class="cta-img">
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<!-- ── TESTIMONIOS ── -->
+<div class="container">
+  <div class="sep"></div>
+</div>
+
+<!-- ══ QUÉ INCLUYE ══ -->
+<section class="includes">
+  <div class="container">
+    <span class="section-tag">El programa</span>
+    <h2 class="section-h">Qué incluye<br>Libertad Digital</h2>
+    <p class="section-sub-text">No es una membresía que comprás y abandonás. Es un proceso de 3 meses donde avanzás junto a otras mujeres, con mi presencia activa en cada paso.</p>
+
+    <div class="includes-grid">
+
+      <div class="inc-card">
+        <span class="inc-icon">🎥</span>
+        <div class="inc-title">Llamadas grupales semanales</div>
+        <div class="inc-desc">Cada semana nos reunimos en vivo. Revisamos avances, resolvemos bloqueos y ajustamos estrategia en tiempo real. No avanzás sola nunca.</div>
+      </div>
+
+      <div class="inc-card">
+        <span class="inc-icon">💬</span>
+        <div class="inc-title">Acompañamiento 1 a 1 por WhatsApp</div>
+        <div class="inc-desc">Acceso directo a mí entre llamadas. Dudas, consultas, revisión de contenido. Respuesta real de alguien que ya recorrió el camino.</div>
+      </div>
+
+      <div class="inc-card">
+        <span class="inc-icon">📚</span>
+        <div class="inc-title">Formación completa de Alipro</div>
+        <div class="inc-desc">+100 horas de contenido on demand en 7 habilidades digitales: marketing de afiliados, Hotmart, diseño con IA, ecommerce, producto digital propio y más.</div>
+      </div>
+
+      <div class="inc-card">
+        <span class="inc-icon">👥</span>
+        <div class="inc-title">Comunidad activa de mujeres</div>
+        <div class="inc-desc">Un grupo real de mujeres en el mismo camino que se apoyan, aprenden entre sí y se potencian. El grupo se convierte en tu red.</div>
+      </div>
+
+      <div class="inc-card">
+        <span class="inc-icon">📅</span>
+        <div class="inc-title">3 meses de proceso activo</div>
+        <div class="inc-desc">Tiempo real para arrancar, ajustar y ver resultados concretos. No es un curso que se puede hacer "algún día" — es un proceso estructurado semana a semana.</div>
+      </div>
+
+      <div class="inc-card">
+        <span class="inc-icon">🤖</span>
+        <div class="inc-title">IA para tu negocio</div>
+        <div class="inc-desc">Te enseño a usar inteligencia artificial para crear tu contenido, automatizar procesos y construir tu página web — como la mía — sin saber de tecnología.</div>
+      </div>
+
+    </div>
+
+    <div class="bonus-strip">
+      <span class="bonus-label">Bonos incluidos</span>
+      <ul class="bonus-list">
+        <li>Guía exclusiva "TikTok Expert" — cómo crecer de forma orgánica sin gastar en publicidad</li>
+        <li>Video completo: cómo usar la IA para hacer todo tu negocio, desde el contenido hasta tu página web</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ PARA QUIÉN ES ══ -->
+<section class="para-quien">
+  <div class="container">
+    <span class="section-tag">¿Esto es para vos?</span>
+    <h2 class="section-h">Libertad Digital es para mujeres<br>que quieren un cambio real</h2>
+
+    <div class="pq-grid">
+      <div class="pq-card si">
+        <div class="pq-title">✓ SÍ es para vos si...</div>
+        <ul class="pq-list">
+          <li>Trabajás para otros y querés construir algo propio</li>
+          <li>Sos mamá y querés estar presente sin sacrificar tus ingresos</li>
+          <li>Querés aprender habilidades digitales reales, no teoría</li>
+          <li>Estás dispuesta a comprometerte con el proceso 3 meses</li>
+          <li>Necesitás a alguien que te guíe, no otro curso para hacer sola</li>
+          <li>Buscás libertad de tiempo y de espacio, no solo más dinero</li>
+        </ul>
+      </div>
+
+      <div class="pq-card no">
+        <div class="pq-title">✗ NO es para vos si...</div>
+        <ul class="pq-list">
+          <li>Buscás hacerte rica de la noche a la mañana sin esfuerzo</li>
+          <li>No estás dispuesta a dedicarle tiempo al proceso</li>
+          <li>Querés resultados sin aplicar lo que aprendés</li>
+          <li>No querés salir de tu zona de confort</li>
+          <li>Esperás que otro haga el trabajo por vos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ TRANSFORMACIÓN ══ -->
+<section class="transformacion">
+  <div class="container">
+    <span class="section-tag">La transformación</span>
+    <h2 class="section-h">De dónde venís<br>a dónde podés llegar</h2>
+
+    <div class="transform-wrap">
+      <div class="transform-col antes">
+        <span class="transform-label">Hoy</span>
+        <ul class="transform-list">
+          <li>Trabajás para otros y dependés de un sueldo</li>
+          <li>El tiempo se te va en cosas que no son tuyas</li>
+          <li>No tenés ingresos propios ni independencia real</li>
+          <li>Querés algo digital pero no sabés por dónde empezar</li>
+          <li>Te sentís sola frente a todo esto</li>
+        </ul>
+      </div>
+
+      <div class="transform-arrow">→</div>
+
+      <div class="transform-col despues">
+        <span class="transform-label">En 3 meses</span>
+        <ul class="transform-list">
+          <li>Tenés tu negocio digital propio funcionando</li>
+          <li>Generás tus propios ingresos desde el celular</li>
+          <li>Trabajás con libertad de tiempo y de espacio</li>
+          <li>Tenés una estrategia clara y resultados concretos</li>
+          <li>Formás parte de una comunidad que avanza junto a vos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ TESTIMONIOS ══ -->
 <section class="testimonios">
-  <div class="divider"></div>
-  <p class="section-label">TESTIMONIO DE <span>CLIENTES</span></p>
-  <p class="section-sub">Emprendedoras como vos que trabajaron conmigo</p>
+  <div class="container">
+    <span class="section-tag">Resultados reales</span>
+    <h2 class="section-h">Lo que dicen quienes ya empezaron<br>con mi acompañamiento</h2>
 
-  <div class="testimonios-grid">
+    <!-- VIDEOS -->
+    <div class="testi-videos">
 
-    <div class="card-t">
-      <div class="t-badge">Alumna</div>
-      <div class="t-video">
-        <iframe 
-          src="https://www.youtube.com/embed/Oksa8hjNY9Y" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <div class="testi-video-card">
+        <div class="testi-video-wrap">
+          <iframe src="https://www.youtube.com/embed/Oksa8hjNY9Y?rel=0&modestbranding=1&playsinline=1" title="Testimonio Druscila" allowfullscreen></iframe>
+        </div>
+        <div class="testi-video-info">
+          <div class="testi-name">Druscila</div>
+          <div class="testi-detail">Alumna del programa Libertad Digital</div>
+        </div>
       </div>
-      <div class="t-result">Testimonio 1</div>
-      <div class="t-name">— Druscila</div>
+
+      <div class="testi-video-card">
+        <div class="testi-video-wrap">
+          <iframe src="https://www.youtube.com/embed/gU72OmSLkoQ?rel=0&modestbranding=1&playsinline=1" title="Testimonio Julieta" allowfullscreen></iframe>
+        </div>
+        <div class="testi-video-info">
+          <div class="testi-name">Julieta</div>
+          <div class="testi-detail">Alumna del programa Libertad Digital</div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card-t">
-      <div class="t-badge">Alumna</div>
-      <div class="t-video">
-        <iframe 
-          src="https://www.youtube.com/embed/gU72OmSLkoQ" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+    <!-- CARRUSEL FOTOS -->
+    <p class="car-hint">📸 Capturas y mensajes reales</p>
+
+    <div class="carrusel-wrap">
+      <button type="button" class="car-btn" onclick="moverCar(-1)" aria-label="Anterior">‹</button>
+      <div class="carrusel-viewport">
+        <div class="carrusel-track" id="carTrack">
+          <div class="car-slide"><img src="img/carrusel/testimonio-1.jpeg" alt="Testimonio 1"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-2.jpeg" alt="Testimonio 2"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-3.jpeg" alt="Testimonio 3"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-4.jpeg" alt="Testimonio 4"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-5.jpeg" alt="Testimonio 5"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-6.jpeg" alt="Testimonio 6"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-7.jpeg" alt="Testimonio 7"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-8.jpeg" alt="Testimonio 8"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-9.jpeg" alt="Testimonio 9"></div>
+          <div class="car-slide"><img src="img/carrusel/testimonio-10.jpeg" alt="Testimonio 10"></div>
+        </div>
       </div>
-      <div class="t-result">Testimonio 2</div>
-      <div class="t-name">— Julieta</div>
+      <button type="button" class="car-btn" onclick="moverCar(1)" aria-label="Siguiente">›</button>
     </div>
+    <div class="car-dots" id="carDots"></div>
 
   </div>
 </section>
 
-<!-- ── CTA 2 (¿TENÉS DUDAS?) ── -->
-<section class="cta2">
-  <h2>¿TENÉS DUDAS?</h2>
-  <p>
-    Si querés saber más sobre cómo puedo ayudarte a escalar tu negocio en redes sociales,
-    agendá una llamada gratuita y te cuento todo.
-  </p>
-  <button class="btn-cta" onclick="openModal()">INICIAR CONVERSACIÓN →</button>
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ GARANTÍA ══ -->
+<section class="garantia">
+  <div class="container">
+    <span class="section-tag">Mi compromiso</span>
+    <h2 class="section-h">Mi garantía personal</h2>
+
+    <div class="garantia-box">
+      <div class="garantia-icon">🛡️</div>
+      <div>
+        <div class="garantia-title">Si aplicaste todo y no llegaste, es mi responsabilidad</div>
+        <p class="garantia-text">
+          Me comprometo a que si en los 3 meses tenés tu perfil de TikTok activo, tus primeras piezas de contenido publicadas y tu estrategia de negocio digital definida — y aun así <strong>no lograste tu primera venta</strong> — hacemos una llamada 1 a 1 de 2 horas para revisar tu caso en profundidad, corregir lo que no está funcionando y redefinir tu estrategia juntas, sin costo adicional.<br><br>
+          Porque no busco clientas que paguen y desaparezcan. <strong>Busco casos de éxito.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="sep"></div></div>
+
+<!-- ══ CTA FINAL ══ -->
+<section class="cta-section">
+  <div class="cta-box">
+    <span class="cta-tag">Libertad Digital</span>
+    <h2>¿Este es tu momento?</h2>
+    <p>
+      Agendá una llamada gratuita de 30 minutos conmigo.
+      Me contás dónde estás, qué querés construir, y vemos juntas
+      si Libertad Digital es para vos. Sin presión. Sin compromiso.
+    </p>
+    <a href="https://wa.link/bkegup" class="btn-cta">AGENDÁ TU LLAMADA GRATUITA →</a>
+    <span class="btn-note">Cupos limitados — el acompañamiento es personalizado</span>
+  </div>
 </section>
 
 <footer>
-  Copyrights 2026 | @jesicellucci.ok
+  <span>Libertad Digital</span> · @jesicellucci.ok · Copyrights 2026
 </footer>
 
-<!-- ── MODAL ── -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <h3 class="modal-title">AGENDÁ UNA REUNIÓN</h3>
-    <p class="modal-subtitle">Completá tus datos y te escribo por WhatsApp</p>
-    
-    <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
-      <div class="form-group">
-        <label class="form-label" for="nombre">Nombre</label>
-        <input type="text" id="nombre" class="form-input" placeholder="Tu nombre" required>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label" for="telefono">WhatsApp</label>
-        <input type="tel" id="telefono" class="form-input" placeholder="Ej: 11 1234 5678" required>
-      </div>
-      
-      <button type="submit" class="btn-submit">INICIAR CONVERSACIÓN</button>
-    </form>
-    
-    <p class="modal-note">Al presionar, se abrirá WhatsApp con tu mensaje listo</p>
-  </div>
-</div>
-
 <script>
-  // CONFIGURACIÓN: Reemplazar con el número de WhatsApp real
-  // Formato: código de país + número sin espacios ni guiones
-  // Ejemplo: 5491112345678 para Argentina
-  const WHATSAPP_NUMBER = '5491112345678';
+(function() {
+  const track = document.getElementById('carTrack');
+  const dotsWrap = document.getElementById('carDots');
+  if (!track) return;
 
-  function openModal() {
-    document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+  const slides = track.querySelectorAll('.car-slide');
+  let cur = 0;
+
+  function vis() {
+    const w = window.innerWidth;
+    if (w <= 640) return 1;
+    if (w <= 860) return 2;
+    return 3;
   }
 
-  function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.body.style.overflow = '';
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const total = Math.ceil(slides.length / vis());
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('div');
+      d.className = 'car-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => go(i * vis());
+      dotsWrap.appendChild(d);
+    }
   }
 
-  // Cerrar modal al hacer clic fuera
-  document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeModal();
-    }
-  });
-
-  // Cerrar con Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  });
-
-  function sendToWhatsApp(e) {
-    e.preventDefault();
-
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-
-    if (!nombre || !telefono) {
-      alert('Por favor completá todos los campos');
-      return;
-    }
-
-    // Intentar abrir app de WhatsApp directamente (más compatible con TikTok)
-    const whatsappUrl = 'https://wa.link/bkegup';
-    
-    // Primero intenta abrir en la misma ventana (funciona mejor en TikTok)
-    window.location.href = whatsappUrl;
-
-    // Cerrar modal
-    closeModal();
-
-    // Limpiar formulario
-    document.getElementById('whatsappForm').reset();
+  function updateDots() {
+    dotsWrap.querySelectorAll('.car-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === Math.floor(cur / vis())));
   }
+
+  function go(idx) {
+    const v = vis();
+    const max = Math.max(0, slides.length - v);
+    cur = Math.max(0, Math.min(idx, max));
+    const vw = track.parentElement.offsetWidth;
+    const sw = vw / v;
+    const gap = 14;
+    track.style.transform = `translateX(-${cur * (sw + gap / v)}px)`;
+    updateDots();
+  }
+
+  window.moverCar = dir => go(cur + dir);
+
+  buildDots();
+  window.addEventListener('resize', () => { buildDots(); go(0); });
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+  track.addEventListener('touchend', e => {
+    const d = sx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 40) moverCar(d > 0 ? 1 : -1);
+  }, { passive: true });
+})();
 </script>
 
 </body>
