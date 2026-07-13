@@ -1293,9 +1293,10 @@ footer span { color: var(--muted); }
     <div class="lead-form">
       <h3>Dejame tus datos y te escribo</h3>
       <p>Si preferís que te contacte por WhatsApp, dejame tu nombre y número y te escribo en las próximas horas.</p>
-      <form name="contacto-lead" method="POST" netlify action="/gracias.html" onsubmit="handleLead(event)">
+      <form name="contacto-lead" method="POST" action="https://formspree.io/f/xpqvzorq" onsubmit="handleLead(event)">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="tel" name="telefono" placeholder="Tu WhatsApp (sin 0 ni 15)" required>
+        <input type="hidden" name="_next" value="https://jesica-cellucci.netlify.app/gracias.html">
         <button type="submit">QUIERO QUE ME ESCRIBAN</button>
       </form>
     </div>
