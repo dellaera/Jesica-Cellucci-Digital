@@ -1296,7 +1296,17 @@ footer span { color: var(--muted); }
       <form name="contacto-lead" method="POST" action="https://formspree.io/f/xpqvzorq" onsubmit="handleLead(event)">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="tel" name="telefono" placeholder="Tu WhatsApp (sin 0 ni 15)" required>
-        <input type="hidden" name="_next" value="https://jesica-cellucci.netlify.app/gracias.html">
+        <label for="ayuda">¿En qué te gustaría recibir ayuda?</label>
+        <input type="text" name="ayuda" id="ayuda" list="ayudaOpciones" placeholder="Escribí o elegí una opción">
+        <datalist id="ayudaOpciones">
+          <option value="Emprender online"></option>
+          <option value="Escalar mi negocio"></option>
+          <option value="Organizar mis redes sociales"></option>
+          <option value="Crear mi marca personal"></option>
+          <option value="Vender más por Instagram/TikTok"></option>
+          <option value="Definir mi nicho"></option>
+          <option value="Otro"></option>
+        </datalist>
         <button type="submit">QUIERO QUE ME ESCRIBAN</button>
       </form>
     </div>
@@ -1482,10 +1492,11 @@ function handleLead(e) {
   if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
   if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 
+  const ayuda = form.ayuda ? form.ayuda.value.trim() : '';
   fetch('https://formspree.io/f/xpqvzorq', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nombre, telefono })
+    body: JSON.stringify({ nombre, telefono, ayuda })
   })
   .then(() => {
     window.location.href = 'https://jesica-cellucci.netlify.app/gracias.html';
