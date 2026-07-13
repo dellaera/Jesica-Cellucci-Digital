@@ -1469,18 +1469,30 @@ footer span { color: var(--muted); }
   setTimeout(() => bar.classList.add('visible'), 1000);
 })();
 
-// Lead form (Netlify Forms) — tracking antes de enviar
+// Lead form — enviar a Formspree como JSON y redirigir a gracias
 function handleLead(e) {
+  e.preventDefault();
   const form = e.target;
   const nombre = form.nombre.value.trim();
   const telefono = form.telefono.value.trim().replace(/\D/g, '');
   if (!nombre || telefono.length < 8) {
-    e.preventDefault();
     alert('Por favor, completá tus datos correctamente.');
     return;
   }
   if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
   if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+  fetch('https://formspree.io/f/xpqvzorq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, telefono })
+  })
+  .then(() => {
+    window.location.href = 'https://jesica-cellucci.netlify.app/gracias.html';
+  })
+  .catch(() => {
+    window.location.href = 'https://jesica-cellucci.netlify.app/gracias.html';
+  });
 }
 
 // Quiz
